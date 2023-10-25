@@ -2,7 +2,6 @@ package com.example.agrn
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -22,23 +21,19 @@ class MainActivity : AppCompatActivity() {
         val buttonAdd: Button = findViewById(R.id.buttonAdd)
         val buttonViewAgenda: Button = findViewById(R.id.buttonViewAgenda)
 
-        //pasar datos a otra actividad
-        buttonAdd.setOnClickListener(View.OnClickListener {
-            val name = editTextName.getText().toString()
-            val controlNumber = editTextControlNumber.getText().toString()
+        buttonAdd.setOnClickListener {
+            val name = editTextName.text.toString()
+            val controlNumber = editTextControlNumber.text.toString()
             val intent = Intent(this@MainActivity, SecondActivity::class.java)
             intent.putExtra("name", name)
             intent.putExtra("controlNumber", controlNumber)
             startActivity(intent)
-        })
-
-        buttonAdd.setOnClickListener {
-            // Aquí puedes agregar la lógica para el botón "Agregar".
-
         }
 
         buttonViewAgenda.setOnClickListener {
-            // Aquí puedes agregar la lógica para el botón "Ver Agenda".
+            // Lógica para abrir la actividad de la agenda
+            //val intent = Intent(this@MainActivity, AgendaActivity::class.java)
+            startActivity(intent)
         }
     }
 }
